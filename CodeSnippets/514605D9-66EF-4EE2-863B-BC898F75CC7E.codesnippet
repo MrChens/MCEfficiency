@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>rxswiftViewModelInit</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>private let disposeBag = DisposeBag()
+    let loadingState = BehaviorRelay(value: UULoadingViewState.idle)
+    let &lt;#datas#&gt;: BehaviorRelay&lt;[&lt;#dataModel#&gt;]&gt; = BehaviorRelay(value: [])
+    
+    func refresh() {
+        if &lt;#datas#&gt;.value.isEmpty {
+            loadingState.accept(.loading)
+        }
+        
+    }
+    
+    func &lt;#loadDatas#&gt;() -&gt; Observable&lt;[&lt;#dataModel#&gt;]&gt; {
+        Observable.create(&lt;#T##subscribe: (AnyObserver&lt;_&gt;) -&gt; Disposable##(AnyObserver&lt;_&gt;) -&gt; Disposable#&gt;)
+        
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>514605D9-66EF-4EE2-863B-BC898F75CC7E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>rxswift init viewModel</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>rx view model init</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

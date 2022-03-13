@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>customButton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>var saveButton: UIButton = {
+        let button = UIButton(type: .custom)
+        
+        button.setTitleColor(
+            UIColor.uiBlue,
+            for: .normal
+        )
+        
+        button.setTitle(
+            LocalizedString("Save"),
+            for: .normal
+        )
+        
+        button.titleLabel?.setTextStyle(
+            UIColor.uiBlue,
+            size: .bodyDefault,
+            weight: .regular
+        )
+        return button
+    }()
+    
+    var cancelButton: UIButton = {
+        let button = UIButton(type: .custom)
+        
+        button.setTitleColor(
+            UIColor.uiBlue,
+            for: .normal
+        )
+        
+        button.setTitle(
+            LocalizedString("Cancel"),
+            for: .normal
+        )
+        
+        button.titleLabel?.setTextStyle(
+            UIColor.uiBlue,
+            size: .bodyDefault,
+            weight: .regular
+        )
+        return button
+    }()</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>14F883F7-CBAE-413D-BC06-2352AE003B92</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>customButton</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

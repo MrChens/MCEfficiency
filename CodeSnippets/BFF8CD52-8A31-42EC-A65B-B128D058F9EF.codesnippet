@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>rxswiftViewControllerInit</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>class &lt;#TableViewClass#&gt;: UUBaseViewController {
+    let viewModel: &lt;#ViewModel#&gt;
+    private let disposeBag = DisposeBag()
+
+    private var tableView: UITableView = {
+        let tableView = UITableView(
+            frame: .zero,
+            style: .grouped
+        )
+
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .secondaryBG
+        tableView.allowsSelectionDuringEditing = true
+        tableView.showsVerticalScrollIndicator = false
+
+        tableView.register(&lt;#CellClass#&gt;.self, forCellReuseIdentifier: &lt;#CellClass#&gt;.identifier)
+
+        return tableView
+    }()
+
+    @objc
+    init(workerId: String) {
+        viewModel = &lt;#ViewModel#&gt;(&lt;#init#&gt;)
+        super.init(nibName: nil, bundle: nil)
+        title = LocalizedString("profile_overview")
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        view.backgroundColor = .secondaryBG
+        setupViews()
+        bindViewModel()
+        viewModel.fetch()
+    }
+
+    func setupViews() {
+        view.addSubview(tableView)
+
+        tableView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
+            make.right.equalToSuperview().offset(-15)
+        }
+
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+
+    func bindViewModel() {
+        viewModel.loadingState.asDriver()
+            .drive(loadingView.rx.state)
+            .disposed(by: disposeBag)
+
+        viewModel.sections.subscribe { [weak self] _ in
+            self?.tableView.reloadData()
+        }
+        .disposed(by: disposeBag)
+    }
+}
+
+extension &lt;#TableViewClass#&gt;: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {
+        &lt;#code#&gt;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell {
+        &lt;#code#&gt;
+    }
+    
+    
+}
+
+extension &lt;#TableViewClass#&gt;: UITableViewDelegate {
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>BFF8CD52-8A31-42EC-A65B-B128D058F9EF</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>create rx tableviewController</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>rx tableviewController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
